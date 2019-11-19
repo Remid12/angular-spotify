@@ -1,0 +1,25 @@
+<div *ngIf="infos">
+  <p>{{infos.display_name}}</p>
+
+  <img src="{{infos.images[0].url}}" alt="{{infos.display_name}}">
+</div>
+
+<section *ngIf="topArtists" class="s-artists">
+  <mat-form-field>
+    <mat-label>Plage temporelle</mat-label>
+    <mat-select matNativeControl [(value)]="selectTime" (selectionChange)="changeTime($event)">
+      <mat-option value="short_term">Ce mois ci</mat-option>
+      <mat-option value="medium_term">Les 6 derniers mois</mat-option>
+      <mat-option value="long_term">Au total</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <ul class="list-artists">
+    <li class="list-artists__item" *ngFor="let artist of topArtists.items">
+      <a href="{{artist.external_urls.spotify}}" target="_blank">
+        <p>{{artist.name}} - ({{artist.popularity}})</p>
+        <img src="{{artist.images[0].url}}" alt="">
+      </a>
+    </li>
+  </ul>
+</section>

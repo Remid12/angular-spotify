@@ -1,0 +1,29 @@
+$padding: 20px;
+
+.list-artists {
+  position: relative;
+  width: calc(100% + #{$padding*2});
+  margin-left: -$padding;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    position: relative;
+    width: 20%;
+    padding: $padding;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}
+
+.s-artists {
+  position: relative;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(#000, 0.2);
+}
