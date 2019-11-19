@@ -45,21 +45,29 @@ export class SpotifyService {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('authToken')
       }
-    }).pipe(
-      catchError(err => {
-        console.log(err);
-        this.router.navigateByUrl('/');
-        return err;
-      })
-    );
+    });
   }
 
   topArtists(customDuration) {
     const duration = (customDuration != '') ? customDuration : 'short_term';
 
-    console.log(duration);
-
     return this.http.get(`https://api.spotify.com/v1/me/top/artists?time_range=${duration}`, {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+      }
+    });
+  }
+
+  song(id) {
+    return this.http.get(`https://api.spotify.com/v1/tracks/${id}`, {
+      headers: {
+        'Authorization': 'Bearer ' + localStorage.getItem('authToken')
+      }
+    });
+  }
+
+  songDetails(id) {
+    return this.http.get(`https://api.spotify.com/v1/audio-features/${id}`, {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('authToken')
       }

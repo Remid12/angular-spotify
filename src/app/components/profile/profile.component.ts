@@ -15,6 +15,7 @@ export class ProfileComponent implements OnInit {
   constructor(private spotifyService: SpotifyService, private router: Router) {
     this.spotifyService.profile().subscribe((data) => {
       this.infos = data;
+      console.log(this.infos);
     }, error => {
       this.router.navigateByUrl('/');
     });
@@ -24,10 +25,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-
-  }
+  ngOnInit() { }
 
   changeTime(e) {
     this.spotifyService.topArtists(e.value).subscribe((data) => {

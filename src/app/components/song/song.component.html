@@ -1,0 +1,18 @@
+<h1>Song</h1>
+
+<hr>
+
+<div *ngIf="song">
+  <p><b>Song Name:</b><br> {{song.name}}</p>
+  <p><b>Artist:</b><br> {{song.artists[0].name}}</p>
+
+  <p><b>Album:</b><br> {{song.album.name}}</p>
+
+  <img src="{{song.album.images[0].url}}" alt="" width="200">
+
+  <hr>
+
+  <div>
+    <p *ngFor="let key of objectKeys(details)"> <b>{{key}}</b> {{details[key]}}</p>
+  </div>
+</div>
