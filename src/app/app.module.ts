@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material';
 import { SongComponent } from './components/song/song.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SongComponent } from './components/song/song.component';
     HomeComponent,
     ProfileComponent,
     LoginComponent,
-    SongComponent
+    SongComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -2,17 +2,68 @@
 
 <hr>
 
-<div *ngIf="song">
-  <p><b>Song Name:</b><br> {{song.name}}</p>
-  <p><b>Artist:</b><br> {{song.artists[0].name}}</p>
+<div *ngIf="percent" class="s-stats">
+  <div class="dance">
+    <div class="icon">💃 - Danceability ({{percent.danceability}}%)</div>
 
-  <p><b>Album:</b><br> {{song.album.name}}</p>
+    <div class="progress-bar">
+      <div class="inner" [style.width.%]="percent.danceability">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
 
-  <img src="{{song.album.images[0].url}}" alt="" width="200">
+  <div class="energy">
+    <div class="icon">💥 - Energy ({{percent.energy}}%)</div>
 
-  <hr>
+    <div class="progress-bar">
+      <div class="inner" [style.width.%]="percent.energy">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
 
-  <div>
-    <p *ngFor="let key of objectKeys(details)"> <b>{{key}}</b> {{details[key]}}</p>
+  <div class="valence">
+    <div class="content">😁 - Happiness ({{percent.valence}}%)</div>
+
+    <div class="progress-bar">
+      <div class="inner" [style.width.%]="percent.valence">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="speech">
+    <div class="icon">🎤- Speechiness ({{percent.speechiness}}%)</div>
+
+    <div class="progress-bar">
+      <div class="inner" [style.width.%]="percent.speechiness">
+        <div class="progress"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="songs">
+  <div *ngIf="songHappy" class="song song--happy">
+    <h2>Happiest song</h2>
+    <p><b>Song Name:</b><br> {{songHappy.name}}</p>
+    <p><b>Artist:</b><br> {{songHappy.artists[0].name}}</p>
+
+    <p><b>Album:</b><br> {{songHappy.album.name}}</p>
+
+    <img src="{{songHappy.album.images[0].url}}" alt="" width="200">
+    <hr>
+  </div>
+
+  <div *ngIf="songSad" class="song song--sad">
+    <h2>Saddest song</h2>
+    <p><b>Song Name:</b><br> {{songSad.name}}</p>
+    <p><b>Artist:</b><br> {{songSad.artists[0].name}}</p>
+
+    <p><b>Album:</b><br> {{songSad.album.name}}</p>
+
+    <img src="{{songSad.album.images[0].url}}" alt="" width="200">
+    <hr>
   </div>
 </div>

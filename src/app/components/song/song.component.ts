@@ -8,28 +8,39 @@ import { Router } from "@angular/router";
   styleUrls: ['./song.component.scss']
 })
 export class SongComponent implements OnInit {
-  song;
-  details;
-  objectKeys = Object.keys;
+  songHappy;
+  songSad;
+  percent;
+
 
   constructor(private spotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit() {
-    this.fetchSong();
+    this.getSongsData();
   }
 
-  fetchSong() {
-    this.spotifyService.song('1MJ5f5EYBC92ADD6xcz7nb').subscribe((data) => {
-      this.song = data;
+  fetchSong(id, isHappy) {
+    this.spotifyService.song(id).subscribe((data) => {
+      if (isHappy) {
+        this.songHappy = data;
+      } else {
+        this.songSad = data;
+      }
+
     }, error => {
       console.log(error);
-      //this.router.navigateByUrl('/');
-    });
-
-    this.spotifyService.songDetails('1MJ5f5EYBC92ADD6xcz7nb').subscribe((data) => {
-      this.details = data;
-      console.log(this.details);
     });
   }
 
+  getSongsData() {
+    this.spotifyService.latestSongs().subscribe(ids => {
+      this.spotifyService.latestSongsData(ids).subscribe(data => {
+        //store all songs datas
+        this.percent = data;
+
+        this.fetchSong(data.leastHappy, false);
+        this.fetchSong(data.mostHappy, true);
+      });
+    })
+  }
 }
