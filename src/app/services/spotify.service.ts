@@ -81,7 +81,8 @@ export class SpotifyService {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('authToken')
       }
-    }).pipe(map(response => {
+    }).pipe(map(res => {
+      const response: any = res;
       //We store all on latest tracks IDs
       response.items.forEach(song => {
         this.songsList.push(song.track.id);
@@ -98,7 +99,8 @@ export class SpotifyService {
       headers: {
         'Authorization': 'Bearer ' + localStorage.getItem('authToken')
       }
-    }).pipe(map(response => {
+    }).pipe(map(res => {
+      const response: any = res;
       const items = response.audio_features;
       const total = items.length;
 
