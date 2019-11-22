@@ -8,12 +8,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProfileComponent } from './components/profile/profile.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
+import { SongComponent } from './components/song/song.component';
+import { HeaderComponent } from './components/header/header.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material';
-import { SongComponent } from './components/song/song.component';
-import { HeaderComponent } from './components/header/header.component';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { HeaderComponent } from './components/header/header.component';
     MatToolbarModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

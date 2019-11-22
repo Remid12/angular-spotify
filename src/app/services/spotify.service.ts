@@ -31,7 +31,15 @@ export class SpotifyService {
   }
 
   isLogged() {
-    console.log(localStorage.getItem('authToken'));
+    const token = localStorage.getItem('authToken');
+
+    if (token === null || token === '') {
+      console.log(this.router.url);
+      return false;
+    } else {
+      console.log('logged');
+      return true;
+    }
   }
 
   //Check if Auth token is correct

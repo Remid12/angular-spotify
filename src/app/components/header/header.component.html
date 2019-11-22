@@ -1,1 +1,8 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <h1><a [routerLink]="['/']" class="logo">Spotify API</a></h1>
+
+  <ul *ngIf="isLogged" class="menu">
+    <li><a routerLink="/profile">Profile</a></li>
+    <li><a routerLink="/song">Songs</a></li>
+  </ul>
+</mat-toolbar>
