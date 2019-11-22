@@ -37,8 +37,14 @@
 .songs {
   position: relative;
   display: flex;
+  flex-wrap: wrap;
 
   .song {
-    width: 50%;
+    width: 100%;
+
+    @media screen and (min-width: 720px) {
+      width: 50%;
+    }
   }
+
 }
